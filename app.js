@@ -4,15 +4,11 @@ let canvasSizeMultiplier = 1;
   
 let roadColor = 40;
   
-let carWidth;
-let carHeight;
-let carCornerRadius;
+let carWidth, carHeight, carCornerRadius;
   
-let roadLineVWidth;
-  
-let roadLineHHeight;
-  
-let roadLineH;
+let roadLineVWidth, roadLineHHeight;
+
+let roadLineVLeft, roadLineVRight;
   
 let roadLinesHLeft = [];
 let roadLinesHRight = [];
@@ -25,8 +21,11 @@ function setup() {
     carCornerRadius = width / 40;
     
     roadLineVWidth = width / 20;
-    
     roadLineHHeight = height / 20;
+
+    // ROAD LINE-V
+    roadLineVLeft = new RoadLineV(roadLineVWidth, 0, roadLineVWidth, height);
+    roadLineVRight = new RoadLineV(width - roadLineVWidth * 2, 0, roadLineVWidth, height);
     
     // ROAD LINE-H
     for (let i = 0; i < 6; i++){
@@ -47,20 +46,9 @@ function draw() {
     strokeWeight(width / 100);
     fill(167, 255, 79);
     rect(width / 2, height / 4 * 3, carWidth, carHeight, carCornerRadius);
-    
-    // ROAD LINE-V
-    rectMode(CORNER);
-    stroke(127);
-    strokeWeight(width / 240);
-    fill(255);
-    rect(roadLineVWidth, 0, roadLineVWidth, height);
 
-    // ROAD LINE-V
-    rectMode(CORNER);
-    stroke(127);
-    strokeWeight(width / 240);
-    fill(255);
-    rect(width - roadLineVWidth * 2, 0, roadLineVWidth, height);
+    roadLineVLeft.display();
+    roadLineVRight.display();
     
     for (let i = 0; i < 6; i++){
       roadLinesHLeft[i].display();
