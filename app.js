@@ -14,8 +14,9 @@ let roadLineHHeight;
   
 let roadLineH;
   
-let roadLinesH = [];
-  
+let roadLinesHLeft = [];
+let roadLinesHRight = [];
+
 function setup() {
     createCanvas(canvasWidth * canvasSizeMultiplier, canvasHeight * canvasSizeMultiplier);
     
@@ -29,7 +30,11 @@ function setup() {
     
     // ROAD LINE-H
     for (let i = 0; i < 6; i++){
-      roadLinesH.push(new RoadLineH(70 * i, createVector(roadLineVWidth - 1, 0), createVector(0, 1 * canvasSizeMultiplier)));
+      roadLinesHLeft.push(new RoadLineH(70 * i, createVector(roadLineVWidth - 1, 0), createVector(0, 1 * canvasSizeMultiplier)));
+    }
+
+    for (let i = 0; i < 6; i++){
+      roadLinesHRight.push(new RoadLineH(70 * i, createVector((width - roadLineVWidth * 2) - 1, 0), createVector(0, 1 * canvasSizeMultiplier)));
     }
   }
     
@@ -49,9 +54,20 @@ function draw() {
     strokeWeight(width / 240);
     fill(255);
     rect(roadLineVWidth, 0, roadLineVWidth, height);
+
+    // ROAD LINE-V
+    rectMode(CORNER);
+    stroke(127);
+    strokeWeight(width / 240);
+    fill(255);
+    rect(width - roadLineVWidth * 2, 0, roadLineVWidth, height);
     
     for (let i = 0; i < 6; i++){
-      roadLinesH[i].display();
+      roadLinesHLeft[i].display();
+    }  
+
+    for (let i = 0; i < 6; i++){
+      roadLinesHRight[i].display();
     }  
 }
   
