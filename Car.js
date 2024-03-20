@@ -6,17 +6,17 @@ class Car {
     display() {
         // WHEELS
         rectMode(CENTER);
-        stroke(0);
-        strokeWeight(width / 100);
-        fill(255);
+        stroke(127);
+        strokeWeight(1);
+        fill(192);
 
-        rect(this.pos.x - 16, this.pos.y + 15, 8, 10, 6);
+        rect(this.pos.x - 15, this.pos.y + 15, 8, 10, 6);
 
-        rect(this.pos.x + 16, this.pos.y + 15, 8, 10, 6);
+        rect(this.pos.x + 15, this.pos.y + 15, 8, 10, 6);
 
-        rect(this.pos.x + 16, this.pos.y - 15, 8, 10, 6);
+        rect(this.pos.x + 15, this.pos.y - 15, 8, 10, 6);
 
-        rect(this.pos.x - 16, this.pos.y - 15, 8, 10, 6);
+        rect(this.pos.x - 15, this.pos.y - 15, 8, 10, 6);
 
         // BODY
         rectMode(CENTER);
