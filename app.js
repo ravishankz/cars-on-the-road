@@ -21,6 +21,8 @@ let carLVelocity, carRVelocity;
 
 let car;
 
+let carWheelLines = [];
+
 function setup() {
     createCanvas(canvasWidth * canvasSizeMultiplier, canvasHeight * canvasSizeMultiplier);
     
