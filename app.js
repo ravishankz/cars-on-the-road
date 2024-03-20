@@ -19,6 +19,8 @@ let roadLinesHRight = [];
 let carPosition;
 let carLVelocity, carRVelocity;
 
+let car;
+
 function setup() {
     createCanvas(canvasWidth * canvasSizeMultiplier, canvasHeight * canvasSizeMultiplier);
     
@@ -45,6 +47,8 @@ function setup() {
     for (let i = 0; i < 6; i++){
       roadLinesHRight.push(new RoadLineH(70 * i, createVector((width - roadLineVWidth * 2) - 1, 0), createVector(0, 1 * canvasSizeMultiplier)));
     }
+
+    car = new Car(carPosition.x, carPosition.y);
 }
     
 function draw() {
@@ -68,12 +72,7 @@ function draw() {
       roadLinesHRight[i].display();
     }  
 
-    // CAR
-    rectMode(CENTER);
-    stroke(86, 173, 0);
-    strokeWeight(width / 100);
-    fill(167, 255, 79);
-    rect(carPosition.x, carPosition.y, carWidth, carHeight, carCornerRadius);
+    car.display(); 
 }
 
 function colorChange() {
