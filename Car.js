@@ -33,10 +33,12 @@ class Car {
         }
 
         // BODY
-        /*rectMode(CENTER);
+        rectMode(CENTER);
         stroke(86, 173, 0);
         strokeWeight(width / 100);
         fill(167, 255, 79);
-        rect(this.pos.x, this.pos.y, width / 8, height / 8, width / 40);*/
+        rect(this.pos.x, this.pos.y, width / 8, height / 8, width / 40);
     }
+
+    
 }

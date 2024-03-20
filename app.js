@@ -17,9 +17,10 @@ let roadLinesHLeft = [];
 let roadLinesHRight = [];
 
 let carPosition;
-let carLVelocity, carRVelocity;
 
 let car;
+
+let carLVelocity, carRVelocity;
 
 let carWheelLines = [];
 
@@ -31,11 +32,12 @@ function setup() {
     carCornerRadius = width / 40;
 
     carPosition = createVector(width / 2, height / 4 * 3);
-    carLVelocity = createVector(-20, 0);
-    carRVelocity = createVector(20, 0);
     
     roadLineVWidth = width / 20;
     roadLineHHeight = height / 20;
+
+    carLVelocity = createVector(-20, 0);
+    carRVelocity = createVector(20, 0);
 
     // ROAD LINE-V
     roadLineVLeft = new RoadLineV(roadLineVWidth, 0, roadLineVWidth, height);
@@ -116,9 +118,9 @@ function keyPressed() {
 }
 
 function turnLeft() {
-  carPosition.add(carLVelocity);
+  car.pos.add(carLVelocity);
 }
-
+      
 function turnRight() {
-  carPosition.add(carRVelocity);
+  car.pos.add(carRVelocity);
 }
