@@ -2,6 +2,12 @@ class Car {
     constructor(posX, posY) {
         this.pos = createVector(posX, posY);
         this.wheelLineOffset = 4;
+        this.colorR = 0;
+        this.colorG = 0;
+        this.colorB = 0;
+        this.cStrkR = 0;
+        this.cStrkG = 0;
+        this.cStrkB = 0;
     }
 
     display() {
@@ -41,9 +47,21 @@ class Car {
 
         // BODY
         rectMode(CENTER);
-        stroke(86, 173, 0);
+        stroke(this.cStrkR, this.cStrkG, this.cStrkB);
         strokeWeight(width / 100);
-        fill(167, 255, 79);
+        fill(this.colorR, this.colorG, this.colorB);
         rect(this.pos.x, this.pos.y, width / 8, height / 8, width / 40);
+    }
+
+    color(colorR, colorG, colorB) {
+        this.colorR = colorR;
+        this.colorG = colorG;
+        this.colorB = colorB;
+    }
+
+    stroke(cStrkR, cStrkG, cStrkB) {
+        this.cStrkR = cStrkR;
+        this.cStrkG = cStrkG;
+        this.cStrkB = cStrkB;
     }
 }

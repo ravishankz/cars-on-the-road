@@ -18,7 +18,7 @@ let roadLinesHRight = [];
 
 let carPosition;
 
-let car;
+let car, carD1;
 
 let carLVelocity, carRVelocity;
 
@@ -53,6 +53,12 @@ function setup() {
     }
 
     car = new Car(carPosition.x, carPosition.y);
+    car.color(117, 255, 48);
+    car.stroke(7, 105, 9);
+
+    carD1 = new Car(carPosition.x + 60, carPosition.y);
+    carD1.color(33, 255, 248);
+    carD1.stroke(26, 79, 117);
 }
     
 function draw() {
@@ -77,6 +83,7 @@ function draw() {
     }  
 
     car.display(); 
+    carD1.display();
 }
 
 function colorChange() {
