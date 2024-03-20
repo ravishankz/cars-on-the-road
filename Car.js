@@ -8,7 +8,7 @@ class Car {
         // WHEELS
         rectMode(CENTER);
         stroke(40);
-        strokeWeight(1);
+        strokeWeight(0.5);
         fill(192);
 
         rect(this.pos.x - 15, this.pos.y + 15, 8, 10, 3);
@@ -23,10 +23,17 @@ class Car {
         rectMode(CENTER);
         stroke(0);
         strokeWeight(0);
-        fill(roadColor);
+        fill(40);
+
         rect(this.pos.x - 17, this.pos.y + 17 + this.wheelLineOffset, 2, 3, 3);
 
-        this.wheelLineOffset -= 0.3;
+        rect(this.pos.x - 17, this.pos.y + -13 + this.wheelLineOffset, 2, 3, 3);
+
+        rect(this.pos.x + 17, this.pos.y + -13 + this.wheelLineOffset, 2, 3, 3);
+
+        rect(this.pos.x + 17, this.pos.y + 17 + this.wheelLineOffset, 2, 3, 3);
+
+        this.wheelLineOffset -= 0.25;
 
         if (this.wheelLineOffset < -8) {
             this.wheelLineOffset = 4;
@@ -39,6 +46,4 @@ class Car {
         fill(167, 255, 79);
         rect(this.pos.x, this.pos.y, width / 8, height / 8, width / 40);
     }
-
-    
 }
