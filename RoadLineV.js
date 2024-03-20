@@ -6,11 +6,11 @@ class RoadLineV {
         this.height = height;
     }
 
-    display(){
+    display(fillR, fillG, fillB){
         rectMode(CORNER);
         stroke(127);
         strokeWeight(width / 240);
-        fill(255);
+        fill(fillR, fillG, fillB);
         rect(this.topLeftPosX, this.topLeftPosY, this.width, this.height);
     }
 }

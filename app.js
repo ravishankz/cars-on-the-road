@@ -9,6 +9,9 @@ let carWidth, carHeight, carCornerRadius;
 let roadLineVWidth, roadLineHHeight;
 
 let roadLineVLeft, roadLineVRight;
+
+let roadLineVColorR = 255, roadLineVColorG = 0, roadLineVColorB = 0;
+let colorChangingCompleted = false;
   
 let roadLinesHLeft = [];
 let roadLinesHRight = [];
@@ -42,13 +45,20 @@ function setup() {
     for (let i = 0; i < 6; i++){
       roadLinesHRight.push(new RoadLineH(70 * i, createVector((width - roadLineVWidth * 2) - 1, 0), createVector(0, 1 * canvasSizeMultiplier)));
     }
-  }
+}
     
 function draw() {
     background(roadColor);
     
-    roadLineVLeft.display();
-    roadLineVRight.display();
+    roadLineVLeft.display(roadLineVColorR, roadLineVColorG, roadLineVColorB);
+    roadLineVRight.display(roadLineVColorR, roadLineVColorG, roadLineVColorB);
+   
+    if (!colorChangingCompleted) {
+      colorChange();
+    }
+    else {
+      colorChangeRev();
+    }
     
     for (let i = 0; i < 6; i++){
       roadLinesHLeft[i].display();
@@ -64,6 +74,36 @@ function draw() {
     strokeWeight(width / 100);
     fill(167, 255, 79);
     rect(carPosition.x, carPosition.y, carWidth, carHeight, carCornerRadius);
+}
+
+function colorChange() {
+  if (roadLineVColorG < 255) {
+    roadLineVColorG++;
+  }
+  else if (roadLineVColorR > 0) {
+    roadLineVColorR--;
+  }
+  else if (roadLineVColorB < 255) {
+    roadLineVColorB++;
+  }
+  else {
+    colorChangingCompleted = true;
+  }
+}
+
+function colorChangeRev() {
+  if (roadLineVColorG > 0) {
+    roadLineVColorG--;
+  }
+  else if (roadLineVColorR < 255) {
+    roadLineVColorR++;
+  }
+  else if (roadLineVColorB > 0) {
+    roadLineVColorB--;
+  }
+  else {
+    colorChangingCompleted = false;
+  }
 }
 
 function keyPressed() {
